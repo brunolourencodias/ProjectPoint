@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Onecore_Web</title>
+
+    <environment include="Development">
+        <link href="~/bootstrap-4.3.1-dist/css/bootstrap.css" rel="stylesheet" />
+        <link href="~/bootstrap-4.3.1-dist/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="~/bootstrap-4.3.1-dist/css/bootstrap-grid.css" rel="stylesheet" />
+        <link href="~/bootstrap-4.3.1-dist/css/bootstrap-reboot.css" rel="stylesheet" />
+        <link href="~/bootstrap-4.3.1-dist/css/bootstrap.css" rel="stylesheet" />
+        <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lato" />
+    </environment>
+    <style type="text/css">
+
+        .navbar-dark {
+            height: 80px;
+            background-color: #384452;
+            border-bottom: 1px groove !important;
+        }
+
+        .nav-link {
+            background-color: #384452;
+            color: white !important;
+            font: 18px sans-serif;
+            text-align: center;
+        }
+        .nav-linkBrand {
+            background-color: #384452;
+            color: white !important;
+            font: 18px sans-serif;
+            text-align: left;
+            width:100%;
+        }
+
+        .nav-link:hover {
+            color: #00b3fe !important;
+            font: bold 18px sans-serif;
+        }
+        .nav-linkBrand:hover {
+            color: #00b3fe !important;
+            font: bold 18px sans-serif;
+        }
+        
+    </style>
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top">
+        <div class="container">
+            <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand nav-linkBrand">Onecore_Web</a>
+            <button class="navbar-toggler" type="button" style="position:absolute; margin-left:80%" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav">
+                    <li><a asp-area="" asp-controller="Home" class="nav-link" asp-action="Index">Home</a></li>
+                    <li><a asp-area="" asp-controller="Painel" class="nav-link" asp-action="Painel">Painel</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; 2019 - Onecore_Web</p>
+        </footer>
+    </div>
+
+    <environment include="Development">
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.0.min.js"
+                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                asp-fallback-test="window.jQuery"
+                crossorigin="anonymous"
+                integrity="sha384-K+ctZQ+LL8q6tP7I94W+qzQsfRV2a+AfHIi9k8z8l9ggpc8X+Ytst4yBo/hH+8Fk">
+        </script>
+        <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/bootstrap.min.js"
+                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
+                crossorigin="anonymous"
+                integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa">
+        </script>
+        <script src="~/js/site.min.js" asp-append-version="true"></script>
+    </environment>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

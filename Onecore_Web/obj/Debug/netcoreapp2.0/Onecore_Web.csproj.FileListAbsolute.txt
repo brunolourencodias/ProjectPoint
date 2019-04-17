@@ -1,0 +1,11 @@
+C:\Users\Fairon\source\repos\Onecore_Web\Onecore_Web\bin\Debug\netcoreapp2.0\Onecore_Web.deps.json
+C:\Users\Fairon\source\repos\Onecore_Web\Onecore_Web\bin\Debug\netcoreapp2.0\Onecore_Web.runtimeconfig.json
+C:\Users\Fairon\source\repos\Onecore_Web\Onecore_Web\bin\Debug\netcoreapp2.0\Onecore_Web.runtimeconfig.dev.json
+C:\Users\Fairon\source\repos\Onecore_Web\Onecore_Web\bin\Debug\netcoreapp2.0\Onecore_Web.dll
+C:\Users\Fairon\source\repos\Onecore_Web\Onecore_Web\bin\Debug\netcoreapp2.0\Onecore_Web.pdb
+C:\Users\Fairon\source\repos\Onecore_Web\Onecore_Web\obj\Debug\netcoreapp2.0\Onecore_Web.csproj.CoreCompileInputs.cache
+C:\Users\Fairon\source\repos\Onecore_Web\Onecore_Web\obj\Debug\netcoreapp2.0\Onecore_Web.AssemblyInfoInputs.cache
+C:\Users\Fairon\source\repos\Onecore_Web\Onecore_Web\obj\Debug\netcoreapp2.0\Onecore_Web.AssemblyInfo.cs
+C:\Users\Fairon\source\repos\Onecore_Web\Onecore_Web\obj\Debug\netcoreapp2.0\Onecore_Web.dll
+C:\Users\Fairon\source\repos\Onecore_Web\Onecore_Web\obj\Debug\netcoreapp2.0\Onecore_Web.pdb
+C:\Users\Fairon\source\repos\Onecore_Web\Onecore_Web\obj\Debug\netcoreapp2.0\Onecore_Web.csprojAssemblyReference.cache

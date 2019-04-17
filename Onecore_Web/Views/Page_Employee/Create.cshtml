@@ -1,0 +1,123 @@
+﻿@model Onecore_Web.Models.Employee
+
+@{
+    ViewData["Title"] = "Create";
+}
+<style type="text/css">
+    .linebar {
+        width: 100%;
+        border: 0.50px solid;
+    }
+
+    .card {
+        margin-top: 100px;
+    }
+</style>
+<h2>Criar um novo Colaborador</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary()
+
+    <div class="row">
+        <div class="card">
+            <div class="card-body">
+                <label style="width:100%; font-family:sans-serif; font-size: 20px">Colaborador</label>
+                <div class="linebar"></div><br />
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label>Nome</label>
+                            @Html.TextBoxFor(m => m.EMP_FULLNAME, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label>Data de Nascimento</label>
+                            @Html.TextBoxFor(m => m.EMP_DATEBORN, new { @class = "form-control", @type = "Date" })
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label>CPF</label>
+                            @Html.TextBoxFor(m => m.EMP_CPF, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label>Data Admissão</label>
+                            @Html.TextBoxFor(m => m.EMP_DATEADMISSION, new { @class = "form-control", @type = "Date" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label>Cargo</label>
+                            @Html.TextBoxFor(m => m.EMP_ROLE, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label>RG</label>
+                            @Html.TextBoxFor(m => m.EMP_RG, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label>Orgão</label>
+                            @Html.TextBoxFor(m => m.EMP_ID, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label>Escolaridade</label>
+                            @Html.TextBoxFor(m => m.EMP_SCHOOLING, new { @class = "form-control" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label>Telefone</label>
+                            @Html.TextBoxFor(m => m.EMP_TELEPHONE, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label>Celular</label>
+                            @Html.TextBoxFor(m => m.EMP_PHONE, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>E-mail</label>
+                            @Html.TextBoxFor(m => m.EMP_EMAIL, new { @class = "form-control", @type = "email" })
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label>Gênero</label>
+                            @Html.TextBoxFor(m => m.EMP_GENRE, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label>Empresa</label>
+                            @Html.TextBoxFor(m => m.CPY_ID, new { @class = "form-control" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-control-plaintext">
+            <div class="btn-group">
+                <input type="submit" asp-controller="Employee" asp-action="Create" class="btn btn-dark" />
+            </div>
+        </div>
+    </div>
+
+}
+
