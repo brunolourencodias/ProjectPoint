@@ -13,6 +13,11 @@
         margin-top: 100px;
     }
 </style>
+
+<script type="text/javascript">
+    
+</script>
+
 <h2>Criar um novo Colaborador</h2>
 
 @using (Html.BeginForm())
@@ -40,7 +45,7 @@
                     <div class="col-md-3">
                         <div class="form-group">
                             <label>CPF</label>
-                            @Html.TextBoxFor(m => m.EMP_CPF, new { @class = "form-control" })
+                            @Html.TextBoxFor(m => m.EMP_CPF, new { @class = "form-control", id = "txtCPF" })
                         </div>
                     </div>
                     <div class="col-md-3">
@@ -114,7 +119,8 @@
     <div class="row">
         <div class="form-control-plaintext">
             <div class="btn-group">
-                <input type="submit" asp-controller="Employee" asp-action="Create" class="btn btn-dark" />
+                <input type="submit" id="btnCreate" asp-controller="Employee" asp-action="Create" class="btn btn-dark" />
+                <button onclick="return call();">ahusahashusa</button>
             </div>
         </div>
     </div>

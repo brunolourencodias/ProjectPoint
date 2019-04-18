@@ -44,7 +44,7 @@ namespace Onecore_Web.Controllers
             string url = @"http://localhost:57593/api/employee";
 
             try
-            {                
+            {
                 var httpWebRequest = (HttpWebRequest)WebRequest.Create(url);
                 httpWebRequest.ContentType = "application/json";
                 httpWebRequest.Method = "POST";
@@ -65,9 +65,12 @@ namespace Onecore_Web.Controllers
                 {
                     var result = streamReader.ReadToEnd();
 
-                    if(result != null)
+                    employee = JsonConvert.DeserializeObject<Employee>(result);
+
+                    if (employee != null)
                     {
-                        return View("~/Views/Page_Employee/Update.cshtml", result);
+
+                        return View("~/Views/Page_Employee/Update.cshtml", employee);
                     }
                 }
 
@@ -87,6 +90,18 @@ namespace Onecore_Web.Controllers
 
             try
             {
+                var httpWebRequest = (HttpWebRequest)WebRequest.Create(url);
+                httpWebRequest.ContentType = "application/json";
+                httpWebRequest.Method = "Delete";
+
+                var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
+
+                if (httpResponse.StatusCode == HttpStatusCode.OK)
+                {
+                    var employees = GetAllEmployee();
+
+                    return View("~/Views/Painel/Services/Employee.cshtml", employees);
+                }
 
             }
             catch (Exception pEx)
@@ -178,7 +193,7 @@ namespace Onecore_Web.Controllers
 
             return employee;
         }
-        
+
         #endregion
     }
 

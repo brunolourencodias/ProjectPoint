@@ -2,13 +2,22 @@
 @{
     ViewData["Title"] = "Employee";
 }
+
+
 <style>
     .card {
         margin-top: 10%;
         width: 100%;
     }
-
 </style>
+
+<script type="text/javascript">
+    function Confirm() {
+        if (confirm("Tem Certeza que deseja excluir esse colaborador??"))
+            $('#btnDel').click();
+        
+    }
+</script>
 
 
 <div class="row">
@@ -43,7 +52,10 @@
 
                                 <td><a asp-controller="Employee" class="btn btn-primary" asp-action="Update" asp-route-id="@item.EMP_ID">Editar</a></td>
 
-                                <td><a asp-controller="Employee" class="btn btn-danger" asp-action="Delete" asp-route-id="@item.EMP_ID">Delete</a></td>
+                                <td>
+                                <a asp-controller="Employee" onclick="return Confirm();"  id="btnDel" class="btn btn-danger" asp-action="Delete" asp-route-id="@item.EMP_ID">Delete</a>
+                                <button >Delete</button>
+                                </td>
                             </tr>
 
                         }
