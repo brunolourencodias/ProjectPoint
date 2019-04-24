@@ -49,48 +49,54 @@ namespace Onecore_Web.Controllers
 
         public IActionResult Create(Employee employee)
         {
-            string url = @"http://localhost:57593/api/employee";
-
-            try
+            if (ModelState.IsValid)
             {
-                var httpWebRequest = (HttpWebRequest)WebRequest.Create(url);
-                httpWebRequest.ContentType = "application/json";
-                httpWebRequest.Method = "POST";
-                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
+                string url = @"http://localhost:57593/api/employee";
 
-                using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
+                try
                 {
-                    var json = JsonConvert.SerializeObject(employee);
+                    var httpWebRequest = (HttpWebRequest)WebRequest.Create(url);
+                    httpWebRequest.ContentType = "application/json";
+                    httpWebRequest.Method = "POST";
+                    ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
 
-                    streamWriter.Write(json);
-                    streamWriter.Flush();
-                    streamWriter.Close();
-                }
-
-                var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
-
-                using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
-                {
-                    var result = streamReader.ReadToEnd();
-
-                    employee = JsonConvert.DeserializeObject<Employee>(result);
-
-                    if (employee != null)
+                    using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
                     {
-                        PopulaEmissor();
-                        PopulaEmpresa();
-                        return View("~/Views/Page_Employee/Update.cshtml", employee);
+                        var json = JsonConvert.SerializeObject(employee);
+
+                        streamWriter.Write(json);
+                        streamWriter.Flush();
+                        streamWriter.Close();
                     }
+
+                    var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
+
+                    using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+                    {
+                        var result = streamReader.ReadToEnd();
+
+                        employee = JsonConvert.DeserializeObject<Employee>(result);
+
+                        if (employee != null)
+                        {
+                            PopulaEmissor();
+                            PopulaEmpresa();
+                            return View("~/Views/Page_Employee/Update.cshtml", employee);
+                        }
+                    }
+
+                }
+                catch (Exception pEx)
+                {
+
+                    throw pEx;
                 }
 
+                
             }
-            catch (Exception pEx)
-            {
-
-                throw pEx;
-            }
-
-            return View();
+            PopulaEmissor();
+            PopulaEmpresa();
+            return View("~/Views/Page_Employee/Create.cshtml", employee);
         }
 
         public IActionResult Delete(int Id)
