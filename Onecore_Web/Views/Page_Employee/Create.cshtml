@@ -27,8 +27,7 @@
 
 @using (Html.BeginForm())
 {
-    @Html.ValidationSummary()
-
+    
     <div class="row">
         <div class="card">
             <div class="card-body">
@@ -36,7 +35,7 @@
                 <div class="linebar"></div><br />
                 <div class="row">
                     <div class="col-md-12">
-                        @Html.ValidationSummary(true, "", new { @class = " alert alert-danger" })
+                        @Html.ValidationSummary(false, "", new { @class = "  alert-danger" })
                     </div>
                 </div>
                 <div class="row">
