@@ -25,5 +25,6 @@ namespace Onecore_Web.Models
         public Byte? EMP_ADDRESSID { get; set; }
         public string EMP_PICTURE { get; set; }
         public string EMP_ROLE { get; set; }
+        public int EM_ID { get; set; }
     }
 }

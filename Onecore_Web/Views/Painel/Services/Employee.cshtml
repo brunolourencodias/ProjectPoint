@@ -13,9 +13,10 @@
 
 <script type="text/javascript">
     function Confirm() {
-        if (confirm("Tem Certeza que deseja excluir esse colaborador??"))
-            $('#btnDel').click();
-        
+        if (confirm("Tem Certeza que deseja excluir esse colaborador??")) {
+            $("#btnDelete").trigger('click');
+        }
+            
     }
 </script>
 
@@ -53,8 +54,8 @@
                                 <td><a asp-controller="Employee" class="btn btn-primary" asp-action="Update" asp-route-id="@item.EMP_ID">Editar</a></td>
 
                                 <td>
-                                <a asp-controller="Employee" onclick="return Confirm();"  id="btnDel" class="btn btn-danger" asp-action="Delete" asp-route-id="@item.EMP_ID">Delete</a>
-                                <button >Delete</button>
+                                    <button asp-controller="Employee" hidden="hidden"  id="btnDelete"  asp-action="Delete" asp-route-id="@item.EMP_ID"></button>
+                                    <button class="btn btn-danger" onclick="return Confirm();">Delete</button>
                                 </td>
                             </tr>
 

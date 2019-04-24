@@ -2,7 +2,10 @@
 
 @{
     ViewData["Title"] = "Create";
+
+
 }
+<script src="~/jQuery-Mask-Plugin-master/dist/jquery.mask.js"></script>
 <style type="text/css">
     .linebar {
         width: 100%;
@@ -15,7 +18,11 @@
 </style>
 
 <script type="text/javascript">
-    
+    $(document).ready(function () {
+        var ok = $('#txtCPF').val();
+        alert(ok);
+        $('#txtCPF').mask('999.999.999-99');
+    }
 </script>
 
 <h2>Criar um novo Colaborador</h2>
@@ -71,7 +78,7 @@
                     <div class="col-md-3">
                         <div class="form-group">
                             <label>Orgão</label>
-                            @Html.TextBoxFor(m => m.EMP_ID, new { @class = "form-control" })
+                            @Html.DropDownListFor(m => m.EM_ID, (List<SelectListItem>)ViewBag.Emissor, new { @class = "form-control" })
                         </div>
                     </div>
                     <div class="col-md-3">
@@ -109,7 +116,7 @@
                     <div class="col-md-2">
                         <div class="form-group">
                             <label>Empresa</label>
-                            @Html.TextBoxFor(m => m.CPY_ID, new { @class = "form-control" })
+                            @Html.DropDownListFor(m => m.CPY_ID, (List<SelectListItem>)ViewBag.Empresa, new { @class = "form-control" })
                         </div>
                     </div>
                 </div>
@@ -120,7 +127,6 @@
         <div class="form-control-plaintext">
             <div class="btn-group">
                 <input type="submit" id="btnCreate" asp-controller="Employee" asp-action="Create" class="btn btn-dark" />
-                <button onclick="return call();">ahusahashusa</button>
             </div>
         </div>
     </div>
